@@ -1,8 +1,32 @@
 package com.example.diceroll2
 
+import java.io.BufferedReader
+import java.io.File
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.nio.file.StandardOpenOption
+import java.util.ArrayList
+import kotlin.random.Random
 
 
 fun main() {
+    val inputStream: InputStream = File("/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data").inputStream()
+    val inputString = inputStream.bufferedReader().use { it.readText() }
+    println(inputString)
+
+   // val outString = "nicolle,salinas,18.087.154-3"
+    //File("/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data").bufferedWriter().use { out -> out.write(outString)  }
+
+    fun list():ArrayList<String> = arrayListOf("1","2")
+    val list = File("/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data")
+        .readLines()
+        .map { it }
+
+
+
+
+
+
     val hourJob: Int = 150
     val valueHour: Int = 5000
 
@@ -71,10 +95,4 @@ fun printSeparationLine(script: Int) {
 
 
 
-// recordar a carlos hacer curso de Lambda
 
-
-
-// separar las cosas en otras funciones
-// hacer test
-// generar clases e interface
