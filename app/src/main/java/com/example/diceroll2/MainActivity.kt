@@ -10,19 +10,26 @@ import kotlin.random.Random
 
 
 fun main() {
-    val inputStream: InputStream = File("/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data").inputStream()
+    val PATH_NAME = "/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data"
+    val inputStream: InputStream = File(PATH_NAME).inputStream()
     val inputString = inputStream.bufferedReader().use { it.readText() }
     println(inputString)
 
-   // val outString = "nicolle,salinas,18.087.154-3"
+
+    // val outString = "nicolle,salinas,18.087.154-3"
     //File("/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data").bufferedWriter().use { out -> out.write(outString)  }
 
-    fun list():ArrayList<String> = arrayListOf("1","2")
-    val list = File("/Users/mobdev/Documents/GitHub/DiceRoll2/app/src/main/res/raw/data")
-        .readLines()
-        .map { it }
+    //fun listJob():ArrayList<String> = arrayListOf("18.087.154-3","Nicolle Salinas", "18.773.234-2", "Romualdo Rojas")
+    //println(listJob())
 
-
+     val listJob: MutableList<String> = mutableListOf()
+     listJob.add(0,"18.087.154-3")
+     listJob.add(1,"Nicolle Salinas")
+     listJob.add(2,"18.722.073-4")
+     listJob.add(3,"Ivan Cabrera")
+     for( i in listJob){
+         println(i)
+     }
 
 
 
@@ -64,15 +71,16 @@ fun calculationAssets(hourJob: Int, valueHour: Int): Double {
     return totalAssets + totalDaysJob
 
 }
+
 fun calculationPensionFundManager(hourJob: Int, valueHour: Int): Double {
-    val totalAssets = calculationAssets(hourJob,valueHour)
+    val totalAssets = calculationAssets(hourJob, valueHour)
     val pensionFundManager = 0.1125
     val totalPensionFundManager = totalAssets * pensionFundManager
     return (totalPensionFundManager)
 }
 
 fun calculationHealth(hourJob: Int, valueHour: Int): Double {
-    val totalAssets = calculationAssets(hourJob,valueHour)
+    val totalAssets = calculationAssets(hourJob, valueHour)
     val health = 0.07
     val totalHealth = totalAssets * health
     return (totalHealth)
